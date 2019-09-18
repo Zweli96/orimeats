@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('drivers', 'DriversController');
 
 Route::resource('salesmanagers', 'SalesManagersController');
+
+Route::resource('products', 'ProductsController');

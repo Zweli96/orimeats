@@ -76,8 +76,28 @@ table.table-fit tfoot td {
     border: none;
 }
 
-form.form-no-space {
+form.form-no-space,
+.form-group-no-space {
     display: inline;
     margin: 0;
     padding: 0;
+}
+
+.table-image-container {
+    padding: 2rem 0rem;
+}
+
+.table-image h4 {
+    margin: 2rem 0rem 1rem;
+}
+
+.table-image td,
+.table-image th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.img-max {
+    max-width: 200px;
+    width: 100%;
 }

@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);/*!
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(/chart.js/dist/Chart.css);/*!
  *   AdminLTE v3.0.0-alpha
  *   Author: Abdullah Almsaeed
  *	 Website: AdminLTE.io <http://adminlte.io>
@@ -29679,9 +29679,29 @@ table.table-fit tfoot td {
   border: none;
 }
 
-form.form-no-space {
+form.form-no-space,
+.form-group-no-space {
   display: inline;
   margin: 0;
   padding: 0;
+}
+
+.table-image-container {
+  padding: 2rem 0rem;
+}
+
+.table-image h4 {
+  margin: 2rem 0rem 1rem;
+}
+
+.table-image td,
+.table-image th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.img-max {
+  max-width: 200px;
+  width: 100%;
 }
 

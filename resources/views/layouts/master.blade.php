@@ -64,7 +64,7 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="overflow-x: hidden;">
       <!-- Brand Logo -->
       <a href="/home" class="brand-link">
         <img src="{{url('/img/ori.png')}}" alt="Ori Dashboard" class="brand-image"
@@ -113,7 +113,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/products" class="nav-link">
                       <i class="fas fa-car nav-icon"></i>
                       <p>Products</p>
                     </a>

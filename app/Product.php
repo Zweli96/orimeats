@@ -19,6 +19,10 @@ class Product extends Model
      * @var string
      */
     protected $table = 'product';
+    //Primary Key
+    public $primarykey = "id";
+    // No Timestamps
+    public $timestamps = false;
 
     /**
      * @var array
