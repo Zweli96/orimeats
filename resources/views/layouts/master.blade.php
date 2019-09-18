@@ -96,7 +96,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="/salesmanagers" class="nav-link">
                     <i class="fas fa-address-card nav-icon"></i>
                     <p>Sales Managers</p>
                   </a>

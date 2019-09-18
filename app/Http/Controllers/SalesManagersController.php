@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\SalesManager;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Carbon;
 
 class SalesManagersController extends Controller
 {
@@ -13,7 +16,8 @@ class SalesManagersController extends Controller
      */
     public function index()
     {
-        //
+        $salesmanagers =  SalesManager::orderBy('id', 'asc')->paginate(10);
+        return view('salesmanagers.index')->with('salesmanagers', $salesmanagers);
     }
 
     /**
@@ -23,7 +27,7 @@ class SalesManagersController extends Controller
      */
     public function create()
     {
-        //
+        return view('salesmanagers.create');
     }
 
     /**
@@ -34,7 +38,29 @@ class SalesManagersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validation Rules
+        $this->validate($request, [
+            'firstname' => 'required',
+            'surname' => 'required',
+            'username' => 'required|unique:salesmanager',
+            'contact' => 'required',
+            'status' => 'required',
+            'password' => 'required|min:6',
+            'confirmpassword' => 'same:password',
+        ]);
+
+        //Create Sales Manager
+        $salesmanager = new SalesManager;
+        $salesmanager->firstname = $request->input('firstname');
+        $salesmanager->surname = $request->input('surname');
+        $salesmanager->username = $request->input('username');
+        $salesmanager->contact = $request->input('contact');
+        $salesmanager->status = $request->input('status');
+        $salesmanager->regDate = Carbon::now();
+        $salesmanager->password = Hash::make($request->input('password'));
+        $salesmanager->save();
+
+        return redirect('/salesmanagers')->with('success', 'New Sales Manager Created');
     }
 
     /**
@@ -45,7 +71,8 @@ class SalesManagersController extends Controller
      */
     public function show($id)
     {
-        //
+        $salesmanager = SalesManager::find($id);
+        return view('salesmanagers.show')->with('salesmanager', $salesmanager);
     }
 
     /**
@@ -56,7 +83,8 @@ class SalesManagersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $salesmanager = SalesManager::find($id);
+        return view('salesmanagers.edit')->with('salesmanager', $salesmanager);
     }
 
     /**
@@ -68,7 +96,25 @@ class SalesManagersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Validation Rules
+        $this->validate($request, [
+            'firstname' => 'required',
+            'surname' => 'required',
+            'username' => 'required',
+            'contact' => 'required',
+            'status' => 'required',
+        ]);
+
+        //Create Sales Manager
+        $salesmanager = SalesManager::find($id);
+        $salesmanager->firstname = $request->input('firstname');
+        $salesmanager->surname = $request->input('surname');
+        $salesmanager->username = $request->input('username');
+        $salesmanager->contact = $request->input('contact');
+        $salesmanager->status = $request->input('status');
+        $salesmanager->save();
+
+        return redirect('/salesmanagers')->with('success', 'Sales Manager Details Updated');
     }
 
     /**
@@ -79,6 +125,9 @@ class SalesManagersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $salesmanager = SalesManager::find($id);
+        $salesmanager->delete();
+
+        return redirect('/salesmanagers')->with('success', 'Sales Managers Has Been Removed');
     }
 }
