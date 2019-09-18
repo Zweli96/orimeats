@@ -1,0 +1,83 @@
+table.table-fit {
+    margin: auto;
+    width: auto !important;
+    table-layout: auto !important;
+}
+table.table-fit thead th,
+table.table-fit tfoot th {
+    width: auto !important;
+}
+table.table-fit tbody td,
+table.table-fit tfoot td {
+    width: auto !important;
+}
+
+.navbar-danger {
+    background-color: #dc3545;
+}
+.navbar-navy {
+    background-color: #001f3f;
+}
+.navbar-olive {
+    background-color: #3d9970;
+}
+.navbar-lime {
+    background-color: #01ff70;
+}
+.navbar-fuchsia {
+    background-color: #f012be;
+}
+.navbar-maroon {
+    background-color: #d81b60;
+}
+.navbar-blue {
+    background-color: #007bff;
+}
+.navbar-indigo {
+    background-color: #6610f2;
+}
+.navbar-purple {
+    background-color: #6f42c1;
+}
+.navbar-pink {
+    background-color: #e83e8c;
+}
+.navbar-red {
+    background-color: #dc3545;
+}
+.navbar-orange {
+    background-color: #fd7e14;
+}
+.navbar-yellow {
+    background-color: #ffc107;
+}
+.navbar-green {
+    background-color: #28a745;
+}
+.navbar-teal {
+    background-color: #20c997;
+}
+.navbar-cyan {
+    background-color: #17a2b8;
+}
+.navbar-white {
+    background-color: #fff;
+}
+.navbar-gray {
+    background-color: #6c757d;
+}
+.navbar-gray-dark {
+    background-color: #343a40;
+}
+
+.fabutton {
+    background: none;
+    padding: 0px;
+    border: none;
+}
+
+form.form-no-space {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
