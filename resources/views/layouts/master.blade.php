@@ -114,12 +114,12 @@
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="/products" class="nav-link">
-                      <i class="fas fa-car nav-icon"></i>
+                      <i class="fas fa-box nav-icon"></i>
                       <p>Products</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/prices" class="nav-link">
                       <i class="fas fa-donate nav-icon"></i>
                       <p>Pricing</p>
                     </a>
@@ -172,5 +172,32 @@
 
 <!-- REQUIRED SCRIPTS -->
   <script src="/js/app.js"></script>
+
+<script>
+    $(document).ready(function(){
+    
+     fetch_customer_data();
+    
+     function fetch_customer_data(query = '')
+     {
+      $.ajax({
+       url:"{{ route('prices.action') }}",
+       method:'GET',
+       data:{query:query},
+       dataType:'json',
+       success:function(data)
+       {
+        $('#prices_search').html(data.table_data);
+        $('#total_records').text(data.total_data);
+       }
+      })
+     }
+    
+     $(document).on('keyup', '#search', function(){
+      var query = $(this).val();
+      fetch_customer_data(query);
+     });
+    });
+    </script>
 </body>
 </html>

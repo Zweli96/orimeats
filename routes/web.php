@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\PricesController;
+
 Route::get('/', 'PagesController@index');
 
 Route::get('/about', 'PagesController@about');
@@ -24,3 +26,8 @@ Route::resource('drivers', 'DriversController');
 Route::resource('salesmanagers', 'SalesManagersController');
 
 Route::resource('products', 'ProductsController');
+
+Route::get('/prices', 'PricesController@index');
+Route::get('/prices/action', 'PricesController@action')->name('prices.action');
+
+Route::resource('prices', 'PricesController');
