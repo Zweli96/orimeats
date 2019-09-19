@@ -1,45 +1,60 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+# Ori-Meats Content Management Application
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+Web based content management system. Built for system Ori Meats sytem administrators to manage the content that is utilised by the Ori Meats Mobile application. The applicaton was developed using the **Laravel 6 Framework**
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+The application provides the user several functionalities:
+
+-   Manage Drivers and Sales Managers
+-   Manage Products
+-   Update Pricing
+-   Manage orders and assign orders to drivers
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+-   **PHP 7.1 or later**, If you are running wamp you can upgrade your php through [this site](http://wampserver.aviatechno.net/ "This Site")
+
+-   **Composer** which can be downloaded [here](https://getcomposer.org/download/ "here")
+
+-   ** Npm** Npm comes bundled with [nodejs](https://nodejs.org/en/download/ "nodejs")
+
+### Installing
+
+1. Clone GitHub repo for this project locally
+   _Note: Make sure you have git installed locally on your computer first_
+   `git clone https://yourusername@bitbucket.org/appfarmdevs/orimeats.git`
+
+2. Cd into your local project directory
+
+3. Install Composer Dependencies
+   `composer install`
+
+4. Install NPM Dependencies
+   `npm install`
+
+5. Create a copy of your .env file in project directory
+   `cp .env.example .env` see sample [.env file](https://github.com/laravel/laravel/blob/master/.env.example ".env file")
+
+6. Generate an app encryption key
+   `php artisan key:generate`
+
+7. Create an empty mysql database for our application
+   in a mysql console`create database orimeats`
+
+8. import the orimeats.sql into orimeats database
+   `use orimeats; source orimeats.sql`
+
+9. In the .env file, add database information to allow Laravel to connect to the database
+    > In the .env file fill in the DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, and DB_PASSWORD options to match the credentials of the database you just created. In the .env file fill in the DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, and DB_PASSWORD options to match the credentials of the database you just created.
+10. Migrate the database
+    `php artisan migrate`
+11. Run the app using the Laravel development server
+    `php artisan serve`
 
 ---
 
-## Edit a file
-
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
-
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
-
----
-
-## Create a file
-
-Next, you’ll add a new file to this repository.
-
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
-
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
-
----
-
-## Clone a repository
-
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
-
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
-
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+© App Farm 2019
+email: info@appfarm.biz
