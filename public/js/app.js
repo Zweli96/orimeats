@@ -81843,6 +81843,24 @@ var myChart = new Chart(ctx, {
     }
   }
 });
+var ctx1 = document.getElementById("barChart");
+var myDoughnutChart = new Chart(ctx1, {
+  type: "doughnut",
+  data: {
+    labels: ["Bacon", "Sausages", "Polony", "Chicken"],
+    datasets: [{
+      label: "Population (millions)",
+      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9"],
+      data: [2478, 5267, 734, 784]
+    }]
+  },
+  options: {
+    title: {
+      display: false,
+      text: "Product Orders"
+    }
+  }
+});
 
 /***/ }),
 

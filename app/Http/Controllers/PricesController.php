@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Price;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
@@ -57,9 +59,7 @@ class PricesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
-    }
+    { }
 
     /**
      * Update the specified resource in storage.
@@ -70,7 +70,9 @@ class PricesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $price = Price::find($id);
+        $price->amount = $request->amount;
+        $price->save();
     }
 
     /**
@@ -111,9 +113,10 @@ class PricesController extends Controller
                     $output .= '
         <tr>
          <td>' . $row->id . '</td>
-         <td>' . $row->image . '</td>
+         <td class="w-25">' . '<img src="/storage/img/product_images/' . $row->image . '"' . 'class="img-fluid img-thumbnail img-max" alt="Sheep">' . '</td>
          <td>' . $row->name . '</td>
          <td>' . $row->amount . '</td>
+         <td>' . '<a href="/prices/' . $row->id . '/edit"><btn class="btn btn-primary"><i class="fas fa-edit" btn-primary></i> Change Price</btn></a>' . '</td>
         </tr>
         ';
                 }
@@ -131,51 +134,5 @@ class PricesController extends Controller
 
             return json_encode($data);
         }
-
-
-        /*
-        if ($request->ajax()) {
-            $query = $request->get('query');
-            if ($query != '') {
-                $data = DB::table('product')
-                    ->leftJoin('price', 'product.id', '=', 'price.productId')
-                    ->select('product.*', 'price.amount')
-                    ->where('product.name', 'like', '%' . $query . '%')
-                    ->orderBy('product.name', 'asc')
-                    ->get();
-            } else {
-                $data = DB::table('product')
-                    ->leftJoin('price', 'product.id', '=', 'price.productId')
-                    ->select('product.*', 'price.amount')
-                    ->orderBy('product.name', 'asc')
-                    ->get();
-            }
-            $total_row = $data->count();
-            if ($total_row > 0) {
-                foreach ($data as $row) {
-                    $output = '
-                        <tr>
-                            <td>' . $row->id . '</td>
-                            <td>' . $row->image . '</td>
-                            <td>' . $row->name . '</td>
-                            <td>' . $row->amount . '</td>
-                        </tr>
-                    ';
-                }
-            } else {
-                $output = '
-                    <tr>
-                        <td align="center" colspan="5">No Products Found</td>
-                    </tr>
-                ';
-            }
-            $data = array(
-                'table_data' => $output,
-                'table_data' => $total_row
-            );
-
-            echo json_encode($data);
-        }
-        */
     }
 }
