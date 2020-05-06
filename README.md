@@ -55,6 +55,3 @@ These instructions will get you a copy of the project up and running on your loc
     `php artisan serve`
 
 ---
-
-© App Farm 2019
-email: info@appfarm.biz
